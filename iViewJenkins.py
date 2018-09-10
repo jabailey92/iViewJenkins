@@ -17,5 +17,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
     log = logger(args.verbose)
     conn = jConn(args.ip, args.user, args.apiToken, log)
-    conn.get_all_jobs()
-    # gui = GUI()
+    jobs = conn.get_all_jobs()
+    gui = GUI(jobs, log)
