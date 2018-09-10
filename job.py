@@ -18,3 +18,6 @@ class job:
 
     def get_url(self):
         return self._url
+
+    def __str__(self):
+        return "Job {} details:\n\tURL:{}\n\tStatus:{}".format(self._name, self._url, self._current_status)
