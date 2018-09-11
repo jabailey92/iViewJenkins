@@ -5,6 +5,7 @@ import time
 
 BLUE="#5495ff"
 RED="#fc3c3c"
+GREY="#CCCCCC"
 
 class GUI():
     def __init__(self, jobs, log, jenkins):
@@ -73,10 +74,20 @@ class GUI():
         status = tkinter.Label(buildView, text="Status: {}".format(buildInfo['result']), font='Helvetica 18 bold',
                                bg=self._sort_colouring(buildInfo['result']), fg="black", width=25)
         status.pack()
+        console_heading = tkinter.Label(buildView, text="Console:", font='Helvetica 18 bold',
+                               bg=self._sort_colouring(buildInfo['result']), fg="black", anchor="w")
+        console_heading.pack()
+        console = tkinter.Label(buildView, text=self._jenkinsConnection.get_build_output(jobName, buildNumber), font='Helvetica 10',
+                                        bg=self._sort_colouring(buildInfo['result']), fg="black", anchor="w")
+        console.pack()
+
+
 
     def _sort_colouring(self, status):
         if (status == "blue") or (status == "SUCCESS"):
             return BLUE
+        elif (status == None):
+            return GREY
         else:
             return RED
 
