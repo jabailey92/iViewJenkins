@@ -97,7 +97,7 @@ class GUI():
                 button.configure(bg=self._sort_colouring(self._jobs[self._mainButtons.index(button)].get_status()))
 
     def _update_thread(self, interval=10):
-        while(True):
+        while True:
             self._log.debug("Checking status of jobs")
             self._jobs = self._jenkinsConnection.get_all_jobs()
             self._update_button_colouring()
