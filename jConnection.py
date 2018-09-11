@@ -31,3 +31,6 @@ class jConn:
             jobs.append(job(json))
 
         return jobs
+
+    def update_status(self):
+        self._log.debug("Checking status")

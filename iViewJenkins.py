@@ -18,4 +18,4 @@ if __name__ == '__main__':
     log = logger(args.verbose)
     conn = jConn(args.ip, args.user, args.apiToken, log)
     jobs = conn.get_all_jobs()
-    gui = GUI(jobs, log)
+    gui = GUI(jobs, log, conn)
