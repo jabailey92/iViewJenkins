@@ -34,3 +34,14 @@ class jConn:
 
     def update_status(self):
         self._log.debug("Checking status")
+
+    def get_job_info(self, job_name):
+        # print(self._connection().get_build_info(job_name, 2))
+        # print(self._connection().get_build_console_output(job_name, 2))
+        return self._connection().get_job_info(job_name)
+
+    def get_build_info(self, job_name, build_number):
+        return self._connection().get_build_info(job_name, build_number)
+
+    def get_build_output(self, job_name, build_number):
+        return self._connection().get_build_console_output(job_name, build_number)
